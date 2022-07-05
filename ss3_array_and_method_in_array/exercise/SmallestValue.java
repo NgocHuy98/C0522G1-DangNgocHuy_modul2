@@ -8,14 +8,15 @@ public class SmallestValue {
         System.out.println("Nhập độ dài mảng");
         int length = sc.nextInt();
         int[] arr = new int[length];
-        for (int i = 0; i < length; i++) {
+        int i;
+        for ( i = 0; i < length; i++) {
             System.out.printf("Nhập phần từ mảng [%d]", i);
             arr[i] = sc.nextInt();
         }
         System.out.println("Mảng vừa tạo");
         System.out.println(Arrays.toString(arr));
         int min = arr[0];
-        for (int i = 0; i < arr.length; i++) {
+        for ( i = 0; i < arr.length; i++) {
             if (arr[i] < min) {
                 min = arr[i];
             }

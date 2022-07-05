@@ -1,8 +1,7 @@
 package ss3_array_and_method_in_array.exercise;
-
 import java.util.Scanner;
-
-public class LargestElement {
+public class SumOfNumberInArr2D {
+    //Tổng các số trong 1 cột
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập hàng: ");
@@ -17,17 +16,19 @@ public class LargestElement {
                 arr[i][j] = sc.nextInt();
             }
         }
-        int max = arr[0][0];
-        System.out.println("Ma trận vừa tạo: ");
-        for ( i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                System.out.print(arr[i][j] + "\t");
-                if (arr[i][j] > max) {
-                    max = arr[i][j];
-                }
+        for ( i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.print(arr[i][j]+"\t");
             }
             System.out.println();
+
         }
-        System.out.println("Phần tử lớn nhất: " + max);
+        int sum=0;
+        for ( i = 0; i < arr.length; i++) {
+            for (int j = 0; j < 1; j++) {
+                    sum += arr[i][j];
+            }
+        }
+        System.out.println(sum);
     }
 }

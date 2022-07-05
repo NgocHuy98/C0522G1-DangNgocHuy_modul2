@@ -21,7 +21,7 @@ public class ElementAdd {
         int[] newArr = new int[length + 1];
         System.out.println("Nhập phần tử cần chèn vào mảng: ");
         int number = sc.nextInt();
-        int index;
+        int index,i;
         do {
             System.out.println("Nhập vị trí chèn: ");
             index = sc.nextInt();
@@ -29,11 +29,11 @@ public class ElementAdd {
                 System.out.println("Không chèn được, nhập lại vị trí ");
             }
         } while (index < 0 || index > arr.length);
-        for (int i = 0; i < index; i++) {
+        for ( i = 0; i < index; i++) {
             newArr[i] = arr[i];
         }
         newArr[index] = number;
-        for (int i = index + 1; i < newArr.length; i++) {
+        for ( i = index + 1; i < newArr.length; i++) {
             newArr[i] = arr[i - 1];
         }
         arr = newArr;
