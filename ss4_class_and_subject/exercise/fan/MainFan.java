@@ -1,4 +1,6 @@
-package ss4_class_and_subject.exercise;
+package ss4_class_and_subject.exercise.fan;
+
+import ss4_class_and_subject.exercise.fan.Fan;
 
 public class MainFan {
         public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ss4_class_and_subject.exercise;
+package ss4_class_and_subject.exercise.stop_watch;
 
 import java.util.Date;
 

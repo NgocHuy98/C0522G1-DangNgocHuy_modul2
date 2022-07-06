@@ -1,4 +1,4 @@
-package ss4_class_and_subject.exercise;
+package ss4_class_and_subject.exercise.fan;
 
 public class Fan {
     //xây dựng lớp fan(quạt)

@@ -1,6 +1,4 @@
-package ss4_class_and_subject.exercise;
-
-import java.sql.Date;
+package ss4_class_and_subject.exercise.stop_watch;
 
 public class MainStopWatch {
     public static void main(String[] args) {
