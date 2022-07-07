@@ -4,6 +4,9 @@ import ss4_class_and_subject.exercise.fan.Fan;
 
 public class MainFan {
         public static void main(String[] args) {
+            Fan fan0 = new Fan();
+            System.out.println("fan0 "+fan0);
+
             Fan fan1 = new Fan();
             fan1.setSpeed(fan1.getFAST());
             fan1.setColor("yellow");
