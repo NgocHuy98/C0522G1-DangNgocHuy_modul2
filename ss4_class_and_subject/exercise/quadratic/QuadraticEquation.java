@@ -1,7 +1,9 @@
 package ss4_class_and_subject.exercise.quadratic;
 
 public class QuadraticEquation {
-    double numberA, numberB, numberC;
+    double numberA;
+    double numberB;
+    double numberC;
 
     public QuadraticEquation(double numberA, double numberB, double numberC) {
         this.numberA = numberA;
