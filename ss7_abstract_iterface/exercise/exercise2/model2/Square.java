@@ -1,6 +1,6 @@
 package ss7_abstract_iterface.exercise.exercise2.model2;
 
-public class Square extends Shape implements Colorable{
+public class Square extends Shape {
     private double side = 1;
     public Square(){
     }

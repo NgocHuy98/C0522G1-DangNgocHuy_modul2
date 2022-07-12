@@ -1,7 +1,7 @@
 package ss7_abstract_iterface.exercise.exercise1.model1;
 
 
-public class Circle extends Shape implements Resizeable {
+public class Circle extends Shape  {
     private double radius=1.0;
 
     public Circle(){

@@ -1,7 +1,7 @@
 package ss7_abstract_iterface.exercise.exercise2.model2;
 
 
-    public class Circle extends Shape implements Colorable{
+    public class Circle extends Shape {
         private double radius=1.0;
 
         public Circle(){

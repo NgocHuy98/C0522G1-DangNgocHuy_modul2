@@ -1,6 +1,6 @@
 package ss7_abstract_iterface.exercise.exercise2.model2;
 
-public class Rectangle extends Shape implements Colorable{
+public class Rectangle extends Shape {
     private double width=1.0;
     private double length=1.0;
 

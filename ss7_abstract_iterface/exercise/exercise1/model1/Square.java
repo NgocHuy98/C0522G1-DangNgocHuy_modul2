@@ -1,6 +1,6 @@
 package ss7_abstract_iterface.exercise.exercise1.model1;
 
-public class Square extends Shape implements Resizeable {
+public class Square extends Shape  {
     private double side = 1;
     public Square(){
     }
