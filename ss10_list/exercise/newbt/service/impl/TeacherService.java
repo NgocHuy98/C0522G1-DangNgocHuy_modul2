@@ -1,6 +1,5 @@
 package ss10_list.exercise.newbt.service.impl;
 
-import ss10_list.exercise.newbt.model.Student;
 import ss10_list.exercise.newbt.model.Teacher;
 import ss10_list.exercise.newbt.service.ITeacherService;
 
@@ -19,18 +18,19 @@ public class TeacherService<E> implements ITeacherService {
         System.out.println("Them moi thanh cong!. ");
 
     }
+
     @Override
     public void removeTeacher() {
         System.out.println("Moi ban nhap id can xoa: ");
-        int idRemove= Integer.parseInt(scanner.nextLine());
+        int idRemove = Integer.parseInt(scanner.nextLine());
         boolean isFlag = false;
-        for( Teacher teacher: teacherList) {
-            if(teacher.getId() == idRemove) {
+        for (Teacher teacher : teacherList) {
+            if (teacher.getId() == idRemove) {
                 System.out.println(" Ban co chac muon xoa hay khong? \n" +
                         "1. Co \n" +
                         "2. Khong");
                 int chooseYesNo = Integer.parseInt(scanner.nextLine());
-                if(chooseYesNo ==1) {
+                if (chooseYesNo == 1) {
                     teacherList.remove(teacher);
                     System.out.println("Xoa thanh cong!.");
                 }
@@ -39,7 +39,7 @@ public class TeacherService<E> implements ITeacherService {
 
             }
         }
-        if(!isFlag) {
+        if (!isFlag) {
             System.out.println("Khong tim thay");
         }
 
@@ -48,8 +48,8 @@ public class TeacherService<E> implements ITeacherService {
 
     @Override
     public void displayAllTeacher() {
-        for(Teacher teacher: teacherList) {
-            System.out.println("Danh sach hoc sinh: "+teacher);
+        for (Teacher teacher : teacherList) {
+            System.out.println("Danh sach hoc sinh: " + teacher);
         }
     }
 
@@ -69,7 +69,7 @@ public class TeacherService<E> implements ITeacherService {
         System.out.print("Nhap chuyen mon: ");
         String specialize = scanner.nextLine();
 
-        Teacher teacher =new Teacher(id,name,dateOfBirth,gender,specialize);
+        Teacher teacher = new Teacher(id, name, dateOfBirth, gender, specialize);
         return teacher;
     }
 }
