@@ -1,14 +1,13 @@
 package ss10_list.exercise.newbt.controller;
 
-import ss10_list.exercise.newbt.model.Teacher;
 
 import java.util.Scanner;
 
 public class SystemController {
-    public static void menuSystemController(){
-        StudentController studentController =new StudentController();
-        TeacherController teacherController=new TeacherController();
-        Scanner scanner= new Scanner(System.in);
+    public static void menuSystemController() {
+        StudentController studentController = new StudentController();
+        TeacherController teacherController = new TeacherController();
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Chao mung ban den voi Codegym. \n" +
                 "1.Quan ly hoc sinh.\n" +
                 "2. Quan ly giang vien. \n " +
@@ -22,14 +21,12 @@ public class SystemController {
                 break;
             }
             case 2: {
-
+                teacherController.menuTeacher();
             }
             case 3: {
                 System.exit(1);
             }
         }
-
-
 
     }
 }

@@ -1,13 +1,13 @@
 package ss10_list.bt_them.model;
 
-public class Oto extends PhuongTien{
+public class OTo extends PhuongTien{
     private int soChoNgoi;
     private String kieuXe;
 
-    public Oto(){
+    public OTo(){
     }
 
-    public Oto(String bienSo, String tenHangXe, String namSX, String chuXe,int soChoNgoi,String kieuXe){
+    public OTo(String bienSo, String tenHangXe, int namSX, String chuXe, int soChoNgoi, String kieuXe){
         super(bienSo, tenHangXe, namSX, chuXe);
         this.soChoNgoi=soChoNgoi;
         this.kieuXe=kieuXe;

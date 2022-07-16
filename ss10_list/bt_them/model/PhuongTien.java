@@ -3,13 +3,13 @@ package ss10_list.bt_them.model;
 public abstract class PhuongTien {
     private String bienSo;
     private String tenHangXe;
-    private String namSX;
+    private int namSX;
     private String chuXe;
 
     public PhuongTien() {
     }
 
-    public PhuongTien(String bienSo, String tenHangXe, String namSX, String chuXe) {
+    public PhuongTien(String bienSo, String tenHangXe, int namSX, String chuXe) {
         this.bienSo = bienSo;
         this.tenHangXe = tenHangXe;
         this.namSX = namSX;
@@ -32,11 +32,11 @@ public abstract class PhuongTien {
         this.tenHangXe = tenHangXe;
     }
 
-    public String getNamSX() {
+    public int getNamSX() {
         return namSX;
     }
 
-    public void setNamSX(String namSX) {
+    public void setNamSX(int namSX) {
         this.namSX = namSX;
     }
 

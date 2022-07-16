@@ -1,21 +1,21 @@
 package ss10_list.bt_them.model;
 
 public class XeTai extends PhuongTien{
-    private int trongTai;
+    private double trongTai;
 
     public XeTai(){
     }
 
-    public XeTai(String bienSo, String tenHangXe, String namSX, String chuXe,int trongTai){
+    public XeTai(String bienSo, String tenHangXe, int namSX, String chuXe,double trongTai){
         super(bienSo, tenHangXe, namSX, chuXe);
         this.trongTai=trongTai;
     }
 
-    public int getTrongTai() {
+    public double getTrongTai() {
         return trongTai;
     }
 
-    public void setTrongTai(int trongTai) {
+    public void setTrongTai(double trongTai) {
         this.trongTai = trongTai;
     }
 
