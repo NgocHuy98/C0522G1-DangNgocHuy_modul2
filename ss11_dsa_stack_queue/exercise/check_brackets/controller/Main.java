@@ -1,6 +1,6 @@
 package ss11_dsa_stack_queue.exercise.check_brackets.controller;
 
-import ss11_dsa_stack_queue.exercise.check_brackets.model.Brackets;
+import ss11_dsa_stack_queue.exercise.check_brackets.service.Brackets;
 
 import java.util.Scanner;
 
@@ -9,6 +9,7 @@ public class Main {
         Scanner scanner=new Scanner(System.in);
         System.out.println("nhap vao 1 chuoi");
         String characters=scanner.nextLine();
+
         if (Brackets.checkBrackets(characters)) {
             System.out.println("dung ");
         }else {

@@ -1,4 +1,4 @@
-package ss11_dsa_stack_queue.exercise.decimal_to_binary.model;
+package ss11_dsa_stack_queue.exercise.decimal_to_binary.service;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -15,7 +15,7 @@ public class Translation {
             decimal/=2;
         }
         System.out.println("day so he nhi phan: ");
-        while (!integerStack.empty()) {
+        while (!integerStack.isEmpty()) {
             System.out.print(integerStack.pop());
         }
     }

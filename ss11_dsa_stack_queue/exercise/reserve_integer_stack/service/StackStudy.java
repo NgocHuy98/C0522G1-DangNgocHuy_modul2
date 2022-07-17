@@ -1,4 +1,4 @@
-package ss11_dsa_stack_queue.exercise.reserve_integer_stack.model;
+package ss11_dsa_stack_queue.exercise.reserve_integer_stack.service;
 
 import java.util.Scanner;
 import java.util.Stack;

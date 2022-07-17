@@ -1,4 +1,4 @@
-package ss11_dsa_stack_queue.exercise.palindrome.model;
+package ss11_dsa_stack_queue.exercise.palindrome.service;
 
 import java.util.LinkedList;
 import java.util.Queue;
