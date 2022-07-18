@@ -49,7 +49,7 @@ public class TeacherService<E> implements ITeacherService {
     @Override
     public void displayAllTeacher() {
         for (Teacher teacher : teacherList) {
-            System.out.println("Danh sach hoc sinh: " + teacher);
+            System.out.println("Danh sach giao vien " + teacher);
         }
     }
 
