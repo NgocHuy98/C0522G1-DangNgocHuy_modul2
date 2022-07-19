@@ -52,11 +52,10 @@ public abstract class SystemCodeGym {
 
     @Override
     public String toString() {
-        return "SystemCodeGym{" +
-                "id=" + id +
-                ", name=" + name +
-                ", dayOfBitrh='" + dayOfBitrh + '\'' +
-                ", general='" + general + '\'' +
-                '}';
+        return "SystemCodeGym: " +
+                " id = " + id +
+                ", name = " + name +
+                ", dayOfBitrh = " + dayOfBitrh +
+                ", general = " + general;
     }
 }

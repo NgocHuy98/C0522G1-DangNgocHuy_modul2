@@ -31,9 +31,9 @@ public class OTo extends PhuongTien{
 
     @Override
     public String toString() {
-        return "Oto{" +
-                "soChoNgoi=" + soChoNgoi +
-                ", kieuXe='" + kieuXe + '\'' +
-                '}'+" "+super.toString();
+        return "Oto: " +
+                " soChoNgoi = " + soChoNgoi +
+                ", kieuXe = " + kieuXe +
+                " "+super.toString();
     }
 }

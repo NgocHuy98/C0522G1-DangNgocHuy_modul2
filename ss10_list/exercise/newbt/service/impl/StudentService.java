@@ -21,15 +21,16 @@ public class StudentService<E> implements IStudentService {
     @Override
     public void removeStudent() {
         System.out.println("Moi ban nhap id can xoa: ");
-        int idRemove= Integer.parseInt(scanner.nextLine());
+        int idRemove = Integer.parseInt(scanner.nextLine());
+
         boolean isFlag = false;
-        for(Student student: studentList) {
-            if(student.getId() == idRemove) {
+        for (Student student : studentList) {
+            if (student.getId() == idRemove) {
                 System.out.println(" Ban co chac muon xoa hay khong? \n" +
                         "1. Co \n" +
                         "2. Khong");
                 int chooseYesNo = Integer.parseInt(scanner.nextLine());
-                if(chooseYesNo ==1) {
+                if (chooseYesNo == 1) {
                     studentList.remove(student);
                     System.out.println("Xoa thanh cong!.");
                 }
@@ -38,7 +39,8 @@ public class StudentService<E> implements IStudentService {
 
             }
         }
-        if(!isFlag) {
+
+        if (!isFlag) {
             System.out.println("Khong tim thay");
         }
 
@@ -47,9 +49,48 @@ public class StudentService<E> implements IStudentService {
 
     @Override
     public void displayAllStudent() {
-        for(Student student: studentList) {
-            System.out.println("Danh sach hoc sinh: "+student);
+        for (Student student : studentList) {
+            System.out.println("Danh sach hoc sinh: " + student);
         }
+    }
+
+    @Override
+    public void findStudent() {
+        System.out.println("Nhap vao id cua sinh vien can tim: ");
+        int idFind = Integer.parseInt(scanner.nextLine());
+
+        boolean isFlag = false;
+        for (Student student : studentList) {
+            if (idFind == student.getId()) {
+                System.out.println(student);
+                isFlag = true;
+                break;
+            }
+        }
+        if (!isFlag) {
+            System.out.println("Khong tim thay");
+        }
+
+    }
+
+    @Override
+    public void findName() {
+        System.out.println("Nhap vao ten cua sinh vien can tim: ");
+        String name = scanner.nextLine();
+
+        boolean isFlag = false;
+        for (Student student : studentList) {
+            if (student.getName().contains(name)) {
+                System.out.println(student);
+                isFlag = true;
+
+            }
+        }
+        if (!isFlag) {
+            System.out.println("Khong tim thay");
+        }
+
+
     }
 
     public static Student infoStudent() {
@@ -72,7 +113,7 @@ public class StudentService<E> implements IStudentService {
         System.out.print("Nhap diem: ");
         int point = Integer.parseInt(scanner.nextLine());
 
-        Student student=new Student(id,name,dateOfBirth,gender,classroom,point);
+        Student student = new Student(id, name, dateOfBirth, gender, classroom, point);
         return student;
     }
 }

@@ -47,6 +47,44 @@ public class TeacherService<E> implements ITeacherService {
     }
 
     @Override
+    public void findTeacher() {
+        System.out.println("Nhap vao id cua giang vien can tim: ");
+        int idFind = Integer.parseInt(scanner.nextLine());
+
+        boolean isFlag = false;
+        for (Teacher teacher : teacherList) {
+            if (idFind == teacher.getId()) {
+                System.out.println(teacher);
+                isFlag = true;
+                break;
+            }
+        }
+        if (!isFlag) {
+            System.out.println("Khong tim thay");
+        }
+
+    }
+
+    @Override
+    public void findName() {
+        System.out.println("Nhap vao ten cua giang vien can tim: ");
+        String name = scanner.nextLine();
+
+        boolean isFlag = false;
+        for (Teacher teacher : teacherList) {
+            if (teacher.getName().contains(name)) {
+                System.out.println(teacher);
+                isFlag = true;
+
+            }
+        }
+        if (!isFlag) {
+            System.out.println("Khong tim thay");
+        }
+
+    }
+
+    @Override
     public void displayAllTeacher() {
         for (Teacher teacher : teacherList) {
             System.out.println("Danh sach giao vien " + teacher);

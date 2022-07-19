@@ -10,10 +10,10 @@ import ss10_list.bt_them.service.impl.XeTaiService;
 import java.util.Scanner;
 
 public class PhuongTienCanThem {
-    private Scanner scanner = new Scanner(System.in);
-    private IOToService iOtoService=new OToService() ;
-    private IXeTaiService iXeTaiService=new XeTaiService();
-    private IXemayService iXemayService=new XeMayService();
+    private  Scanner scanner = new Scanner(System.in);
+    private  IOToService iOtoService=new OToService() ;
+    private  IXeTaiService iXeTaiService=new XeTaiService();
+    private  IXemayService iXemayService=new XeMayService();
 
     public void danhSachThem() {
         do{

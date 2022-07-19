@@ -21,8 +21,8 @@ public class XeMay extends PhuongTien {
 
     @Override
     public String toString() {
-        return "XeMay{" +
-                "congSuat=" + congSuat +
-                '}'+" "+super.toString();
+        return "XeMay: " +
+                " congSuat = " + congSuat +
+                " "+super.toString();
     }
 }

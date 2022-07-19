@@ -21,8 +21,8 @@ public class Teacher extends SystemCodeGym {
 
     @Override
     public String toString() {
-        return "Teacher{" +
-                "specialize='" + specialize + '\'' +
-                '}'+" "+super.toString();
+        return super.toString()+
+                " specialize = " + specialize  +
+                " ";
     }
 }

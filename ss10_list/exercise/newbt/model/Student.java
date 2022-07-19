@@ -31,9 +31,8 @@ public class Student extends SystemCodeGym{
 
     @Override
     public String toString() {
-        return "Student{" +
-                "classroom='" + classroom + '\'' +
-                ", point=" + point +
-                '}'+" " +super.toString();
+        return super.toString()+
+                " classroom = " + classroom +
+                ", point = " + point + " " ;
     }
 }

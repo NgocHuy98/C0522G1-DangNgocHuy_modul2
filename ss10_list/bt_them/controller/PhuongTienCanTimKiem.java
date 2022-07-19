@@ -9,11 +9,11 @@ import ss10_list.bt_them.service.impl.XeTaiService;
 
 import java.util.Scanner;
 
-public record PhuongTienCanTimKiem() {
-    private static Scanner scanner = new Scanner(System.in);
-    private static IOToService iOtoService=new OToService() ;
-    private static IXeTaiService iXeTaiService=new XeTaiService();
-    private static IXemayService iXemayService=new XeMayService();
+public class PhuongTienCanTimKiem {
+    private static  Scanner scanner = new Scanner(System.in);
+    private static  IOToService iOtoService=new OToService() ;
+    private static  IXeTaiService iXeTaiService=new XeTaiService();
+    private static  IXemayService iXemayService=new XeMayService();
 
     public void danhSachTimKiem() {
         do{

@@ -6,17 +6,15 @@ import ss10_list.bt_them.service.IXemayService;
 import ss10_list.bt_them.service.impl.OToService;
 import ss10_list.bt_them.service.impl.XeMayService;
 import ss10_list.bt_them.service.impl.XeTaiService;
-import ss10_list.exercise.newbt.service.IStudentService;
-import ss10_list.exercise.newbt.service.impl.StudentService;
 
 import java.util.Scanner;
 
 public class PhuongTienCanHienThi {
 
-    private Scanner scanner = new Scanner(System.in);
-    private IOToService iOtoService = new OToService();
-    private IXeTaiService iXeTaiService = new XeTaiService();
-    private IXemayService iXemayService = new XeMayService();
+    private  Scanner scanner = new Scanner(System.in);
+    private  IOToService iOtoService = new OToService();
+    private  IXeTaiService iXeTaiService = new XeTaiService();
+    private  IXemayService iXemayService = new XeMayService();
 
     public void danhSachHienThi() {
         do {
