@@ -4,6 +4,7 @@ import ss10_list.exercise.newbt.model.Student;
 import ss10_list.exercise.newbt.service.IStudentService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,6 +12,16 @@ public class StudentService<E> implements IStudentService {
 
     public static List<Student> studentList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+    static {
+        studentList.add(new Student(6, "Dang Ngoc Huy", "20/02/1998", "nam", "C05", 10));
+        studentList.add(new Student(2, "Dang Ngoc Ty", "20/02/1968", "nam", "C05", 9));
+        studentList.add(new Student(3, "Le Huy Hoang", "20/02/1918", "nam", "C05", 8));
+        studentList.add(new Student(4, "Chau Tinh Tri", "20/02/1999", "nam", "C05", 7));
+        studentList.add(new Student(5, "Le Hoang Tri", "20/02/1978", "nam", "C05", 8));
+        studentList.add(new Student(1, "Dang Ngoc Huy", "20/02/1998", "nam", "C05", 10));
+
+    }
+
 
     public void addStudent() {
         Student student = infoStudent();
@@ -90,7 +101,30 @@ public class StudentService<E> implements IStudentService {
             System.out.println("Khong tim thay");
         }
 
+    }
 
+    @Override
+    public void sortName() {
+        boolean isSwap = true;
+        for (int i = 0; i < studentList.size() - 1 && isSwap; i++) {
+            isSwap = false;
+            for (int j = 0; j < studentList.size() - 1 - i; j++) {
+                if ((studentList.get(j).getName().compareTo(studentList.get(j + 1).getName())) > 0) {
+                    Collections.swap(studentList, j, j + 1);
+                    isSwap = true;
+
+                }
+                if ((studentList.get(j).getName().compareTo(studentList.get(j + 1).getName()) == 0)) {
+                    if (studentList.get(j).getId() > studentList.get(j + 1).getId()) {
+                        Collections.swap(studentList, j, j + 1);
+                        isSwap = true;
+
+                    }
+                }
+
+
+            }
+        }
     }
 
     public static Student infoStudent() {

@@ -16,7 +16,8 @@ public class TeacherController {
                     "3. Xem danh sach giang vien \n" +
                     "4. Tim giang vien theo id \n"+
                     "5. Tim giang vien theo ten \n"+
-                    "6. Quay ve menu chinh.");
+                    "6. Sap xep giang vien theo ten \n"+
+                    "7. Quay ve menu chinh.");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
@@ -30,9 +31,16 @@ public class TeacherController {
                     break;
                 case 4:
                     iTeacherService.findTeacher();
+                    break;
                 case 5:
                     iTeacherService.findName();
+                    break;
                 case 6:
+                    iTeacherService.sortName();
+                    iTeacherService.displayAllTeacher();
+                    break;
+
+                case 7:
                     return;
             }
         } while (true);

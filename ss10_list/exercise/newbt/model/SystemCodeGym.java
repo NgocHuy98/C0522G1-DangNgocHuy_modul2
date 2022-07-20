@@ -56,6 +56,6 @@ public abstract class SystemCodeGym {
                 " id = " + id +
                 ", name = " + name +
                 ", dayOfBitrh = " + dayOfBitrh +
-                ", general = " + general;
+                ", gender = " + general;
     }
 }

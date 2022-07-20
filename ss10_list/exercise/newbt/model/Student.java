@@ -32,7 +32,7 @@ public class Student extends SystemCodeGym{
     @Override
     public String toString() {
         return super.toString()+
-                " classroom = " + classroom +
-                ", point = " + point + " " ;
+                ", classroom = " + classroom +
+                ", point = " + point ;
     }
 }

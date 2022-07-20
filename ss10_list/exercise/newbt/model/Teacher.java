@@ -22,7 +22,6 @@ public class Teacher extends SystemCodeGym {
     @Override
     public String toString() {
         return super.toString()+
-                " specialize = " + specialize  +
-                " ";
+                ", specialize = " + specialize;
     }
 }
