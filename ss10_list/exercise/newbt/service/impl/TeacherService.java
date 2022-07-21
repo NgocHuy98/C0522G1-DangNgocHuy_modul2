@@ -1,5 +1,6 @@
 package ss10_list.exercise.newbt.service.impl;
 
+import ss10_list.exercise.newbt.model.Student;
 import ss10_list.exercise.newbt.model.Teacher;
 import ss10_list.exercise.newbt.service.ITeacherService;
 
@@ -124,8 +125,24 @@ public class TeacherService<E> implements ITeacherService {
     }
 
     public static Teacher infoTeacher() {
-        System.out.print("Nhap id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        while (true){
+            try {
+                System.out.print("Nhap id: ");
+                id = Integer.parseInt(scanner.nextLine());
+                for(Teacher teacher : teacherList){
+                    if(teacher.getId() == id){
+                        throw new DuplicateIDException("Trùng ID giang vien!!!");
+                    }
+                }
+                break;
+            }catch (NumberFormatException e){
+                System.out.println("Vui lòng nhập số!!!");
+            }
+            catch (DuplicateIDException e){
+                System.out.println(e.getMessage());
+            }
+        }
 
         System.out.print("Nhap name: ");
         String name = scanner.nextLine();
