@@ -2,7 +2,7 @@ package ss10_list.exercise.newbt.utils;
 
 
 import ss10_list.exercise.newbt.model.Student;
-import ss10_list.exercise.newbt.model.Teacher;
+
 
 import java.io.BufferedWriter;
 import java.io.File;

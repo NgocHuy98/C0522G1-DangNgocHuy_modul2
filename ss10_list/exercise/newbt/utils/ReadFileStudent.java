@@ -1,9 +1,6 @@
 package ss10_list.exercise.newbt.utils;
 
-
 import ss10_list.exercise.newbt.model.Student;
-import ss10_list.exercise.newbt.model.Teacher;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

@@ -4,7 +4,7 @@ public class Student extends SystemCodeGym{
     private String classroom;
     private int point;
 
-    public Student(){
+    public Student(int id, String name, String manufacturer, double price, String dateOfManufacture, String expiry){
     }
 
     public Student(int id, String name, String dayOfBitrh, String gender,String classroom, int point){
