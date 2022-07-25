@@ -29,6 +29,11 @@ public class Student extends SystemCodeGym{
         this.point = point;
     }
 
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s \n", this.getId(), this.getName(), this.getDayOfBitrh(), this.getGender(),
+                this.getClassroom(), this.getPoint());
+    }
+
     @Override
     public String toString() {
         return super.toString()+

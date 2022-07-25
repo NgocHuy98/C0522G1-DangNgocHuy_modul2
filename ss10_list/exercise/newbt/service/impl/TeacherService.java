@@ -1,37 +1,56 @@
 package ss10_list.exercise.newbt.service.impl;
 
+
 import ss10_list.exercise.newbt.model.Student;
 import ss10_list.exercise.newbt.model.Teacher;
 import ss10_list.exercise.newbt.service.ITeacherService;
+
+import ss10_list.exercise.newbt.utils.ReadFileTeacher;
+
+import ss10_list.exercise.newbt.utils.WriteFileTeacher;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class TeacherService<E> implements ITeacherService {
+public class TeacherService implements ITeacherService {
+    private static final String PATH = "ss10_list/exercise/newbt/file/teacher.txt";
+
     public static List<Teacher> teacherList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
-    static {
-        teacherList.add(new Teacher(1, "Dang Ngoc Huy", "21/02/1998", "nam", "Toan"));
-        teacherList.add(new Teacher(2, "Ho Hai Hoc", "21/02/1995", "nam", "Ly"));
-        teacherList.add(new Teacher(3, "Dang Quang Anh", "21/02/1995", "nam", "Sinh"));
-        teacherList.add(new Teacher(4, "Dang Van Ti", "21/02/2001", "nam", "Su"));
-        teacherList.add(new Teacher(8, "Chau Tinh Tri", "21/02/1990", "nam", "Dien Anh"));
-        teacherList.add(new Teacher(5, "Chau Tinh Tri", "21/02/1990", "nam", "Dien Anh"));
+//    static {
+//        teacherList.add(new Teacher(1, "Dang Ngoc Huy", "21/02/1998", "nam", "Toan"));
+//        teacherList.add(new Teacher(2, "Ho Hai Hoc", "21/02/1995", "nam", "Ly"));
+//        teacherList.add(new Teacher(3, "Dang Quang Anh", "21/02/1995", "nam", "Sinh"));
+//        teacherList.add(new Teacher(4, "Dang Van Ti", "21/02/2001", "nam", "Su"));
+//        teacherList.add(new Teacher(8, "Chau Tinh Tri", "21/02/1990", "nam", "Dien Anh"));
+//        teacherList.add(new Teacher(5, "Chau Tinh Tri", "21/02/1990", "nam", "Dien Anh"));
+//    }
+public void writeFile() {
+    WriteFileTeacher.writeTeacherFile(PATH, teacherList);
+}
+
+    public void readFile() {
+        List<Teacher> list = ReadFileTeacher.readTeacherFile(PATH);
+        teacherList.clear();
+        teacherList.addAll(list);
     }
 
     @Override
     public void addTeacher() {
+        readFile();
         Teacher teacher = infoTeacher();
         teacherList.add(teacher);
-        System.out.println("Them moi thanh cong!. ");
+        System.out.println("them moi thanh cong: ");
+        writeFile();
 
     }
 
     @Override
     public void removeTeacher() {
+        readFile();
         System.out.println("Moi ban nhap id can xoa: ");
         int idRemove = Integer.parseInt(scanner.nextLine());
         boolean isFlag = false;
@@ -59,6 +78,7 @@ public class TeacherService<E> implements ITeacherService {
 
     @Override
     public void findTeacher() {
+        readFile();
         System.out.println("Nhap vao id cua giang vien can tim: ");
         int idFind = Integer.parseInt(scanner.nextLine());
 
@@ -78,6 +98,7 @@ public class TeacherService<E> implements ITeacherService {
 
     @Override
     public void findName() {
+        readFile();
         System.out.println("Nhap vao ten cua giang vien can tim: ");
         String name = scanner.nextLine();
 
@@ -97,6 +118,7 @@ public class TeacherService<E> implements ITeacherService {
 
     @Override
     public void sortName() {
+        readFile();
         boolean isSwap = true;
         for (int i = 0; i < teacherList.size() - 1 && isSwap; i++) {
             isSwap = false;
@@ -119,6 +141,7 @@ public class TeacherService<E> implements ITeacherService {
 
     @Override
     public void displayAllTeacher() {
+        readFile();
         for (Teacher teacher : teacherList) {
             System.out.println("Danh sach giao vien " + teacher);
         }
@@ -156,7 +179,6 @@ public class TeacherService<E> implements ITeacherService {
         System.out.print("Nhap chuyen mon: ");
         String specialize = scanner.nextLine();
 
-        Teacher teacher = new Teacher(id, name, dateOfBirth, gender, specialize);
-        return teacher;
+        return new Teacher(id, name, dateOfBirth, gender, specialize);
     }
 }

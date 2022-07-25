@@ -19,6 +19,11 @@ public class Teacher extends SystemCodeGym {
         this.specialize = specialize;
     }
 
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s \n",this.getId(),this.getName(),this.getDayOfBitrh(),this.getGender(),
+                this.getSpecialize());
+    }
+
     @Override
     public String toString() {
         return super.toString()+

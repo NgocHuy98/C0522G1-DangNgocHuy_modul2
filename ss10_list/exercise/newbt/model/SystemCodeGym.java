@@ -4,17 +4,17 @@ public abstract class SystemCodeGym {
     private int id;
     private String name;
     private String dayOfBitrh;
-    private String general;
+    private String gender;
 
 
     public SystemCodeGym() {
     }
 
-    public SystemCodeGym(int id, String name, String dayOfBitrh, String general) {
+    public SystemCodeGym(int id, String name, String dayOfBitrh, String gender) {
         this.id = id;
         this.name=name;
         this.dayOfBitrh = dayOfBitrh;
-        this.general = general;
+        this.gender = gender;
 
     }
 
@@ -42,20 +42,20 @@ public abstract class SystemCodeGym {
         this.dayOfBitrh = dayOfBitrh;
     }
 
-    public String getGeneral() {
-        return general;
+    public String getGender() {
+        return gender;
     }
 
     public void setGeneral(String general) {
-        this.general = general;
+        this.gender = gender;
     }
 
     @Override
     public String toString() {
-        return "SystemCodeGym: " +
+        return
                 " id = " + id +
                 ", name = " + name +
                 ", dayOfBitrh = " + dayOfBitrh +
-                ", gender = " + general;
+                ", gender = " + gender;
     }
 }
