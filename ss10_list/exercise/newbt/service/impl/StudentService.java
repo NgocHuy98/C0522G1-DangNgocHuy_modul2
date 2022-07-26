@@ -18,6 +18,10 @@ public class StudentService implements IStudentService {
 
     private static List<Student> studentList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+    private static final String REGEX = "^(((0[1-9]|[12][0-9]|30)[-/](0[13-9]|1[012])|31[-/]" +
+            "(0[13578]|1[02])|(0[1-9]|1[0-9]|2[0-8])[-/]02)[-/][0-9]{4}|29[-/]02" +
+            "[-/]([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468]" +
+            "[048]|0[0-9]|1[0-6])00))$";
 
     //    static {
 //        studentList.add(new Student(6, "Dang Ngoc Huy", "20/02/1998", "nam", "C05", 10));
@@ -58,25 +62,31 @@ public class StudentService implements IStudentService {
         boolean isFlag = false;
         for (Student student : studentList) {
             if (student.getId() == idRemove) {
-                System.out.println(" Ban co chac muon xoa hay khong? \n" +
-                        "1. Co \n" +
-                        "2. Khong");
-                int chooseYesNo = Integer.parseInt(scanner.nextLine());
+                int chooseYesNo;
+                while (true) {
+                    try {
+                        System.out.println(" Ban co chac muon xoa hay khong? \n" +
+                                "1. Co \n" +
+                                "2. Khong");
+                        chooseYesNo = Integer.parseInt(scanner.nextLine());
+                        break;
+
+                    } catch (NumberFormatException e) {
+                        System.out.println("Vui long nhap so");
+                    }
+                }
+
                 if (chooseYesNo == 1) {
                     studentList.remove(student);
                     System.out.println("Xoa thanh cong!.");
                 }
                 isFlag = true;
                 break;
-
             }
         }
-
         if (!isFlag) {
             System.out.println("Khong tim thay");
         }
-
-
     }
 
     @Override
@@ -90,8 +100,17 @@ public class StudentService implements IStudentService {
     @Override
     public void findStudent() {
         readFile();
-        System.out.println("Nhap vao id cua sinh vien can tim: ");
-        int idFind = Integer.parseInt(scanner.nextLine());
+        int idFind;
+        while (true) {
+
+            try {
+                System.out.println("Nhap vao id cua sinh vien can tim: ");
+                idFind = Integer.parseInt(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("vui long nhap so");
+            }
+        }
 
         boolean isFlag = false;
         for (Student student : studentList) {
@@ -151,6 +170,25 @@ public class StudentService implements IStudentService {
         }
     }
 
+    public static String formatName() {
+        System.out.print("Nhap ten: ");
+        String name = scanner.nextLine();
+        String[] arr = name.toLowerCase().trim().split("");
+        StringBuilder str = new StringBuilder().append(arr[0].toUpperCase());
+        for (int i = 1; i < arr.length; i++) {
+            if (!arr[i].equals(" ")) {
+                if (arr[i - 1].equals(" ")) {
+                    str.append(arr[i].toUpperCase());
+                } else {
+                    str.append(arr[i]);
+                }
+            } else if (!arr[i + 1].equals(" ")) {
+                str.append(arr[i]);
+            }
+        }
+        return str.toString();
+    }
+
     public static Student infoStudent() {
         int id;
         while (true) {
@@ -170,12 +208,19 @@ public class StudentService implements IStudentService {
             }
         }
 
+        String name = formatName();
 
-        System.out.print("Nhap name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Nhap ngay sinh: ");
-        String dateOfBirth = scanner.nextLine();
+        String dateOfBirth;
+        do {
+            System.out.print("Nhap ngay sinh: ");
+            dateOfBirth = scanner.nextLine();
+            if (dateOfBirth.matches(REGEX)) {
+                System.out.println("Ngay sinh hop le");
+                break;
+            } else {
+                System.out.println("Nhập sai, vui long nhap lai");
+            }
+        } while (true);
 
 
         System.out.print("Nhap gioi tinh: ");

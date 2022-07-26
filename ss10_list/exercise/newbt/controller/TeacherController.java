@@ -10,15 +10,25 @@ public class TeacherController {
     private ITeacherService iTeacherService=new TeacherService();
     public void menuTeacher() {
         do{
-            System.out.println("Chao mung ban den voi quan ly giang vien \n"+
-                    "1. Them moi giang vien \n" +
-                    "2. Xoa giang vien \n" +
-                    "3. Xem danh sach giang vien \n" +
-                    "4. Tim giang vien theo id \n"+
-                    "5. Tim giang vien theo ten \n"+
-                    "6. Sap xep giang vien theo ten \n"+
-                    "7. Quay ve menu chinh.");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose;
+            while (true){
+                try{
+                    System.out.println("Chao mung ban den voi quan ly giang vien \n"+
+                            "1. Them moi giang vien \n" +
+                            "2. Xoa giang vien \n" +
+                            "3. Xem danh sach giang vien \n" +
+                            "4. Tim giang vien theo id \n"+
+                            "5. Tim giang vien theo ten \n"+
+                            "6. Sap xep giang vien theo ten \n"+
+                            "7. Quay ve menu chinh.");
+                   choose = Integer.parseInt(scanner.nextLine());
+                   break;
+
+                }catch (NumberFormatException e) {
+                    System.out.println("vui long nhap so");
+                }
+            }
+
             switch (choose) {
                 case 1:
                     iTeacherService.addTeacher();
@@ -42,6 +52,8 @@ public class TeacherController {
 
                 case 7:
                     return;
+                default:
+                    System.out.println("Nhap so tu 1 den 7");
             }
         } while (true);
 

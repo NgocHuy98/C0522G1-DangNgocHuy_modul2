@@ -19,8 +19,12 @@ public class TeacherService implements ITeacherService {
 
     public static List<Teacher> teacherList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+    private static final String REGEX = "^(((0[1-9]|[12][0-9]|30)[-/](0[13-9]|1[012])|31[-/]" +
+            "(0[13578]|1[02])|(0[1-9]|1[0-9]|2[0-8])[-/]02)[-/][0-9]{4}|29[-/]02" +
+            "[-/]([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468]" +
+            "[048]|0[0-9]|1[0-6])00))$";
 
-//    static {
+    //    static {
 //        teacherList.add(new Teacher(1, "Dang Ngoc Huy", "21/02/1998", "nam", "Toan"));
 //        teacherList.add(new Teacher(2, "Ho Hai Hoc", "21/02/1995", "nam", "Ly"));
 //        teacherList.add(new Teacher(3, "Dang Quang Anh", "21/02/1995", "nam", "Sinh"));
@@ -28,9 +32,9 @@ public class TeacherService implements ITeacherService {
 //        teacherList.add(new Teacher(8, "Chau Tinh Tri", "21/02/1990", "nam", "Dien Anh"));
 //        teacherList.add(new Teacher(5, "Chau Tinh Tri", "21/02/1990", "nam", "Dien Anh"));
 //    }
-public void writeFile() {
-    WriteFileTeacher.writeTeacherFile(PATH, teacherList);
-}
+    public void writeFile() {
+        WriteFileTeacher.writeTeacherFile(PATH, teacherList);
+    }
 
     public void readFile() {
         List<Teacher> list = ReadFileTeacher.readTeacherFile(PATH);
@@ -56,10 +60,19 @@ public void writeFile() {
         boolean isFlag = false;
         for (Teacher teacher : teacherList) {
             if (teacher.getId() == idRemove) {
-                System.out.println(" Ban co chac muon xoa hay khong? \n" +
-                        "1. Co \n" +
-                        "2. Khong");
-                int chooseYesNo = Integer.parseInt(scanner.nextLine());
+                int chooseYesNo;
+                while (true) {
+                    try {
+                        System.out.println(" Ban co chac muon xoa hay khong? \n" +
+                                "1. Co \n" +
+                                "2. Khong");
+                        chooseYesNo = Integer.parseInt(scanner.nextLine());
+                        break;
+                    } catch (NumberFormatException e) {
+                        System.out.println("Vui long nhap so");
+                    }
+                }
+
                 if (chooseYesNo == 1) {
                     teacherList.remove(teacher);
                     System.out.println("Xoa thanh cong!.");
@@ -79,8 +92,18 @@ public void writeFile() {
     @Override
     public void findTeacher() {
         readFile();
-        System.out.println("Nhap vao id cua giang vien can tim: ");
-        int idFind = Integer.parseInt(scanner.nextLine());
+        int idFind;
+        while (true) {
+
+            try {
+                System.out.println("Nhap vao id cua giang vien can tim: ");
+                idFind = Integer.parseInt(scanner.nextLine());
+                break;
+
+            } catch (NumberFormatException e) {
+                System.out.println("Vui long nhap so");
+            }
+        }
 
         boolean isFlag = false;
         for (Teacher teacher : teacherList) {
@@ -125,18 +148,18 @@ public void writeFile() {
             for (int j = 0; j < teacherList.size() - 1 - i; j++) {
                 if ((teacherList.get(j).getName().compareTo(teacherList.get(j + 1).getName())) > 0) {
                     Collections.swap(teacherList, j, j + 1);
-                    isSwap=true;
+                    isSwap = true;
 
                 }
-                if((teacherList.get(j).getName().compareTo(teacherList.get(j + 1).getName())==0)) {
-                    if(teacherList.get(j).getId()>teacherList.get(j+1).getId()){
+                if ((teacherList.get(j).getName().compareTo(teacherList.get(j + 1).getName()) == 0)) {
+                    if (teacherList.get(j).getId() > teacherList.get(j + 1).getId()) {
                         Collections.swap(teacherList, j, j + 1);
-                        isSwap=true;
+                        isSwap = true;
 
+                    }
                 }
             }
         }
-    }
     }
 
     @Override
@@ -147,31 +170,59 @@ public void writeFile() {
         }
     }
 
+
+    public static String formatName() {
+        System.out.print("Nhap ten: ");
+        String name = scanner.nextLine();
+        String[] arr = name.toLowerCase().trim().split("");
+        StringBuilder str = new StringBuilder().append(arr[0].toUpperCase());
+        for (int i = 1; i < arr.length; i++) {
+            if (!arr[i].equals(" ")) {
+                if (arr[i - 1].equals(" ")) {
+                    str.append(arr[i].toUpperCase());
+                } else {
+                    str.append(arr[i]);
+                }
+            } else if (!arr[i + 1].equals(" ")) {
+                str.append(arr[i]);
+            }
+        }
+        return str.toString();
+    }
+
+
     public static Teacher infoTeacher() {
         int id;
-        while (true){
+        while (true) {
             try {
                 System.out.print("Nhap id: ");
                 id = Integer.parseInt(scanner.nextLine());
-                for(Teacher teacher : teacherList){
-                    if(teacher.getId() == id){
+                for (Teacher teacher : teacherList) {
+                    if (teacher.getId() == id) {
                         throw new DuplicateIDException("Trùng ID giang vien!!!");
                     }
                 }
                 break;
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Vui lòng nhập số!!!");
-            }
-            catch (DuplicateIDException e){
+            } catch (DuplicateIDException e) {
                 System.out.println(e.getMessage());
             }
         }
 
-        System.out.print("Nhap name: ");
-        String name = scanner.nextLine();
+        String name = formatName();
 
-        System.out.print("Nhap ngay sinh: ");
-        String dateOfBirth = scanner.nextLine();
+        String dateOfBirth;
+        do {
+            System.out.print("Nhap ngay sinh: ");
+            dateOfBirth = scanner.nextLine();
+            if (dateOfBirth.matches(REGEX)) {
+                System.out.println("Ngay sinh hop le");
+                break;
+            } else {
+                System.out.println("Nhập sai, vui long nhap lai");
+            }
+        } while (true);
 
         System.out.print("Nhap gioi tinh: ");
         String gender = scanner.nextLine();
