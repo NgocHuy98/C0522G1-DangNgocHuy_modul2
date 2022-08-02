@@ -7,7 +7,4 @@ public interface IBookingService {
 
     void edit();
 
-    void creat();
-
-    void displayConstracts();
 }

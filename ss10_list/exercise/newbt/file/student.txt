@@ -2,4 +2,3 @@
 2,Dang Ngoc Hoang,21/01/1997,nam,c05,9 
 5,huy,21/1/98,am,06,9 
 15,Trương Tấn Hải,120124,nam,125,12 
-24,Huy,21-12-1998,nam,c05,56 

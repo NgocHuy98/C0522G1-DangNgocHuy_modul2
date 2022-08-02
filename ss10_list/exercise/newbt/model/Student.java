@@ -7,7 +7,7 @@ public class Student extends SystemCodeGym{
     public Student(int id, String name, String manufacturer, double price, String dateOfManufacture, String expiry){
     }
 
-    public Student(int id, String name, String dayOfBitrh, String gender,String classroom, int point){
+    public Student(int id, String name, String dayOfBitrh, String gender, String classroom, int point){
        super(id, name, dayOfBitrh, gender);
        this.classroom=classroom;
         this.point=point;

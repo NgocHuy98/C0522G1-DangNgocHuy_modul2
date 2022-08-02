@@ -1,10 +1,15 @@
 package case_study.serviece.impl;
 
 import case_study.serviece.IBookingService;
+import case_study.serviece.IContractService;
 
-public class BookingService implements IBookingService {
+public class BookingService implements IBookingService, IContractService {
+
     @Override
     public void display() {
+
+
+
 
     }
 
@@ -19,12 +24,12 @@ public class BookingService implements IBookingService {
     }
 
     @Override
-    public void creat() {
+    public void create() {
 
     }
 
     @Override
-    public void displayConstracts() {
+    public void displayContracts() {
 
     }
 }

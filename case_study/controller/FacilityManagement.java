@@ -13,20 +13,30 @@ public class FacilityManagement {
         private IFacilityService iFacilityService = new FacilityService();
 
     public void menuFacilityManagement() {
+        MenuFacility menuFacilitys=new MenuFacility();
             do {
-                System.out.println("Facility Management: \n" +
-                        "Please choose!\n" +
-                        "1. Display list facility  \n" +
-                        "2. Add new facility \n" +
-                        "3. Display list facility maintenance \n" +
-                        "4. Return main menu.");
-                int choose = Integer.parseInt(scanner.nextLine());
+                int choose;
+                while (true){
+                    try {
+                        System.out.println("Facility Management: \n" +
+                                "Please choose!\n" +
+                                "1. Display list facility  \n" +
+                                "2. Add new facility \n" +
+                                "3. Display list facility maintenance \n" +
+                                "4. Return main menu.");
+                       choose = Integer.parseInt(scanner.nextLine());
+                       break;
+                    }catch (NumberFormatException e){
+                        System.out.println("Vui long nhap so");
+                    }
+                }
+
                 switch (choose) {
                     case 1:
                         iFacilityService.display();
                         break;
                     case 2:
-                        iFacilityService.add();
+                        menuFacilitys.menuFacility();
                         break;
                     case 3:
                         iFacilityService.displayMaintenance();

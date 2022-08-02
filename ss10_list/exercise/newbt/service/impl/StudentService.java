@@ -79,9 +79,10 @@ public class StudentService implements IStudentService {
                 if (chooseYesNo == 1) {
                     studentList.remove(student);
                     System.out.println("Xoa thanh cong!.");
+                    isFlag = true;
+                    writeFile();
+                    break;
                 }
-                isFlag = true;
-                break;
             }
         }
         if (!isFlag) {
@@ -157,11 +158,13 @@ public class StudentService implements IStudentService {
                     Collections.swap(studentList, j, j + 1);
                     isSwap = true;
 
+
                 }
                 if ((studentList.get(j).getName().compareTo(studentList.get(j + 1).getName()) == 0)) {
                     if (studentList.get(j).getId() > studentList.get(j + 1).getId()) {
                         Collections.swap(studentList, j, j + 1);
                         isSwap = true;
+                        writeFile();
 
                     }
                 }

@@ -1,9 +1,6 @@
 package ss17_binary_file_serialization.exercise.system_product.sercive.impl;
 
-import ss10_list.exercise.newbt.model.Student;
 import ss10_list.exercise.newbt.service.impl.DuplicateIDException;
-import ss10_list.exercise.newbt.utils.ReadFileStudent;
-import ss10_list.exercise.newbt.utils.WriteFileStudent;
 import ss17_binary_file_serialization.exercise.system_product.model.Product;
 import ss17_binary_file_serialization.exercise.system_product.sercive.IProductService;
 import ss17_binary_file_serialization.exercise.system_product.utils.ReadFile;

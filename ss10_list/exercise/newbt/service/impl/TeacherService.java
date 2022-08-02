@@ -1,7 +1,6 @@
 package ss10_list.exercise.newbt.service.impl;
 
 
-import ss10_list.exercise.newbt.model.Student;
 import ss10_list.exercise.newbt.model.Teacher;
 import ss10_list.exercise.newbt.service.ITeacherService;
 

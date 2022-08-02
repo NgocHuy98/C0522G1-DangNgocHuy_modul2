@@ -12,12 +12,21 @@ public class PromotionManagement {
 
     public void menuPromotionManagement() {
         do {
-            System.out.println("Employee Management: \n" +
-                    "Please choose!\n" +
-                    "1. Display list customers use service  \n" +
-                    "2. Display list customers get voucher \n" +
-                    "3. Return main menu.");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose;
+            while (true) {
+                try {
+                    System.out.println("Employee Management: \n" +
+                            "Please choose!\n" +
+                            "1. Display list customers use service  \n" +
+                            "2. Display list customers get voucher \n" +
+                            "3. Return main menu.");
+                    choose = Integer.parseInt(scanner.nextLine());
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Vui long nhap so");
+                }
+            }
+
             switch (choose) {
                 case 1:
                     iPromotionService.displayService();
